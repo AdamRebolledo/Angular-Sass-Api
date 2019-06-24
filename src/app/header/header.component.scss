@@ -1,0 +1,29 @@
+//import
+@import "_variables";
+@import "_skins";
+@import "_mix";
+//variables
+$font-title:50px;
+$radio: 10px;
+//clases
+.component{
+    background: $gray ;
+}
+.title{
+    font-size: $font-title;
+}
+.color{
+    background: $green;
+}
+//anidacion - inclusion de mixin + extencion de clases
+a{
+    background-color: $blue;
+    &:hover{
+        
+        @include border-radius($radio);
+        @extend .color;
+    }
+    span{
+        color:$silver;
+    }
+}

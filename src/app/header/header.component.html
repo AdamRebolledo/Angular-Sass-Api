@@ -1,0 +1,56 @@
+
+<h1 class="container text-white text-center my-4 py-4 component title" >
+    [ngClass] [ngfor]
+ </h1>
+ 
+ <div class="container">
+ 
+ <button class="btn btn-dark m-3"(click)="activo='primero'">primero </button>
+ <button  class="btn btn-danger m-3"(click)="activo='segundo'">segundo</button>
+ <a class="btn m-3 "><span>scss</span></a> 
+ <a class="btn m-3"><span>scss</span></a>
+ <a class="btn m-3"><span>scss</span></a>
+
+
+
+ <p class="text-info d-none" [ngClass]="{'d-block':activo == 'primero'}" >
+     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+     Quam maiores adipisci quibusdam magnam temporibus quisquam nobis,
+      beatae obcaecati inventore tenetur. Provident quae ea perferendis
+     ducimus. Optio totam enim libero iste?
+ </p>
+ 
+ 
+     <p class="text-dark d-none" [ngClass]="{'d-block':activo == 'segundo'}" >
+         Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+         Quam maiores adipisci quibusdam magnam temporibus quisquam nobis,
+          beatae obcaecati inventore tenetur. Provident quae ea perferendis
+         ducimus. Optio totam enim libero iste?
+     </p>
+ 
+     <div class="container">
+         <table class="table table-hover table-striped table-bordered  table-light">
+             <thead>
+                 <tr>
+                     <th scope="col">#</th>
+                     <th scope="col">Tipo</th>
+                     <th scope="col">Nombre</th>
+                     <th scope="col">Edad</th>
+                 </tr>
+             </thead>
+             <tbody>
+                 <tr *ngFor="let animal of animales; index as i">
+                     <td>{{i+1}}</td>
+                     <td>{{animal.tipo}}</td>
+                     <td>{{animal.name}}</td>
+                     <td>{{animal.edad}}</td>
+                 </tr>
+             </tbody>
+         </table>
+     </div>
+ 
+ 
+ 
+ 
+ 
+ </div>

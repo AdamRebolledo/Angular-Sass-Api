@@ -1,0 +1,34 @@
+<div class="alert alert-warning" role="alert" *ngFor="let item of items">
+{{item.name}}
+<div class="float-right" (click)="delete(item)">
+    <span class="btn btn-outline-secondary btn-sm ">Eliminar</span>
+</div>
+<div class="float-right" (click)="edit(item)"  data-toggle="modal" data-target="#exampleModal">
+    <span class="btn btn-outline-secondary btn-sm mr-2">Editar</span>
+</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar: {{editItem.name}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form (ngSubmit)="agregarItemEditado()">
+                <input type="text" placeholder="Edita tarea" name="name" class="form-control" [(ngModel)]="editItem.name"> <!--ngmodel en este caso rescata un parametro desdelista.component en atributos  -->
+                <button class="btn btn-info m-3" data-dismiss="modal">Editar</button>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
