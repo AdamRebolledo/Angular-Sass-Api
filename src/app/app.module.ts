@@ -39,6 +39,7 @@ import { PersonaClaseComponent } from './persona-clase/persona-clase.component';
 import { FormComponent } from './form/form.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { ResultadoComponent } from './resultado/resultado.component';
+import { TestApiComponent } from './test-api/test-api.component';
 
 
 
@@ -47,7 +48,7 @@ import { ResultadoComponent } from './resultado/resultado.component';
 //contaste de rutas
 const routes:Routes= [
   {
-    path: '', component:InicioComponent, pathMatch:'full'
+    path: '', component:TestApiComponent, pathMatch:'full'
   },
   {
     path: 'inicio', component:InicioComponent
@@ -94,7 +95,8 @@ const routes:Routes= [
     PersonaClaseComponent,
     FormComponent,
     CalculatorComponent,
-    ResultadoComponent
+    ResultadoComponent,
+    TestApiComponent
   ],
   imports: [
     BrowserModule,
