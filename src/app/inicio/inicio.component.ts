@@ -12,7 +12,8 @@ export class InicioComponent implements OnInit {
   constructor(db: AngularFirestore) {
     this.items = db.collection('items').valueChanges(); //'items es la coleccion de la base de datos firebase'
   }
-
+//980bf588d2d242639282ccfa17da1f09  app client
+//4e5255c3d0fe49dfa326d7b49be606ce secret 
   ngOnInit() {
   }
 

@@ -9,7 +9,7 @@ import{EquipoService} from './../equipo.service';
 export class NosotrosComponent implements OnInit {
 equipo:any[] = [];
   constructor(private _servicio:EquipoService) {
-this.equipo = _servicio.obtenerEquipo();
+  this.equipo = _servicio.obtenerEquipo();
    }
 
   ngOnInit() {

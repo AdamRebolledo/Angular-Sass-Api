@@ -27,7 +27,9 @@ export class ListaComponent implements OnInit {
   }
 
   edit(item){
+    console.log('estoy en el metodo edit')
 this.editItem = item;
+
   }
 
   agregarItemEditado(){

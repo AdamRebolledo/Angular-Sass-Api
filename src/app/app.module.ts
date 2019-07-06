@@ -35,6 +35,11 @@ import{ConexionService}from './services/conexion.service';
 import { ListaComponent } from './components/lista/lista.component';
 import { ListaAddComponent } from './components/lista-add/lista-add.component';
 import { ApiUsersComponent } from './components/api-users/api-users.component';
+import { PersonaClaseComponent } from './persona-clase/persona-clase.component';
+import { FormComponent } from './form/form.component';
+import { CalculatorComponent } from './calculator/calculator.component';
+import { ResultadoComponent } from './resultado/resultado.component';
+
 
 
 
@@ -60,6 +65,9 @@ const routes:Routes= [
     path: 'api', component:ApiUsersComponent
   },
   {
+    path: 'callback?code', component:ApiUsersComponent
+  },
+  {
     path: 'practica', component:HeaderComponent
   },
   {
@@ -82,7 +90,11 @@ const routes:Routes= [
     EquipoComponent,
     ListaComponent,
     ListaAddComponent,
-    ApiUsersComponent
+    ApiUsersComponent,
+    PersonaClaseComponent,
+    FormComponent,
+    CalculatorComponent,
+    ResultadoComponent
   ],
   imports: [
     BrowserModule,

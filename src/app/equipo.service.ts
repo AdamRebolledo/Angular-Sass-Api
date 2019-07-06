@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,8 @@ equipo:any[] = [
     descripcion:'nosotros works! Lorem ipsum dolor sit amet, consectetu nosotros works! Lorem ipsum dolor sit amet, consectetu'
   }
 ]
+
+saludar = new EventEmitter<string>();
 
   constructor() { 
     console.log('funcionando servicio');

@@ -1,56 +1,107 @@
+<div class="container">
+     <div class="row">
+         <div class="col-md-3">
+                <h1 class="container text-white text-center my-4 py-4 component title" >
+                        [ngClass] [ngfor]
+                     </h1>
+                <label>titulo persona</label>
+                <input type="text" class="form-control" (input)="onModificarPersona($event)">{{tituloPersona}}
+                <h5>cambiar el valor de la variable</h5>
+                <p>EVENT BINDING : {{agregar}}</p>
+                <button class="btn btn-primary" [disabled]="!agregarPersona" (click)="onAgregarPersona()">Property binding </button>
+            
+             <button class="btn btn-dark m-3"(click)="activo='primero'">primero </button>
+             <button  class="btn btn-danger m-3"(click)="activo='segundo'">segundo</button>
+             <a class="btn m-3 "><span>scss</span></a> 
+             <a class="btn m-3"><span>scss</span></a>
+             <a class="btn m-3"><span>scss</span></a>
+            
+            
+            
+             <p class="text-info d-none" [ngClass]="{'d-block':activo == 'primero'}" >
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                 Quam maiores adipisci quibusdam magnam temporibus quisquam nobis,
+                  beatae obcaecati inventore tenetur. Provident quae ea perferendis
+                 ducimus. Optio totam enim libero iste?
+             </p>
+             
+             
+                 <p class="text-dark d-none" [ngClass]="{'d-block':activo == 'segundo'}" >
+                     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                     Quam maiores adipisci quibusdam magnam temporibus quisquam nobis,
+                      beatae obcaecati inventore tenetur. Provident quae ea perferendis
+                     ducimus. Optio totam enim libero iste?
+                 </p>
+             
+                 <div class="container">
+                     <table class="table table-hover table-striped table-bordered  table-light">
+                         <thead>
+                             <tr>
+                                 <th scope="col">#</th>
+                                 <th scope="col">Tipo</th>
+                                 <th scope="col">Nombre</th>
+                                 <th scope="col">Edad</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <tr *ngFor="let animal of animales; index as i">
+                                 <td>{{i+1}}</td>
+                                 <td>{{animal.tipo}}</td>
+                                 <td>{{animal.name}}</td>
+                                 <td>{{animal.edad}}</td>
+                             </tr>
+                         </tbody>
+                     </table>
+                     
+                 </div>
+         </div>
+         <div class="col-md-2">
+                <h1 class="container text-white text-center my-4 py-4 component title" >
+                [ngIf]
+             </h1>
+             <button class="btn btn-primary" (click)="onIf()"> if</button>
+             <h5 *ngIf="declaracionIf; else exampleElse">{{txtIf}}</h5>
+             <ng-template #exampleElse>
+                    {{ejemplo}}
+             </ng-template>
+         </div>
+     
+         <div class="col-md-3">
+                <div class="row">
+                <h1 class="container text-white text-center my-4 py-4 component title" >
+                [ngFor] clases, modelos
+             </h1>
 
-<h1 class="container text-white text-center my-4 py-4 component title" >
-    [ngClass] [ngfor]
- </h1>
- 
- <div class="container">
- 
- <button class="btn btn-dark m-3"(click)="activo='primero'">primero </button>
- <button  class="btn btn-danger m-3"(click)="activo='segundo'">segundo</button>
- <a class="btn m-3 "><span>scss</span></a> 
- <a class="btn m-3"><span>scss</span></a>
- <a class="btn m-3"><span>scss</span></a>
+            <app-form
+            (personaCreada)="onEventComponent($event)"
+            ></app-form>
+        
+            Este es un componente aparte al 
+que se le pasan variables desde otro componente <br><br>
+            <app-persona-clase 
+            *ngFor="let persona of personas; index as i"
+            [persona]="persona" [i]="i" 
+            ></app-persona-clase>
+         
+    </div>
+</div>
+<div class="col-md-3 ml-3">
+    <div class="row">
+            <h1 class="container text-white text-center my-4 py-4 component title" >
+                   service inyectable
+                 </h1>
+                 <p *ngFor="let item of equip; index as i"><span>el nombre es: {{item.name}}
+                     <br> la especialidad es: {{item.especialidad}}  
+                     <button class="btn btn-primary" (click)="indi(i)">edit</button>
+
+                 </span></p>
+                 <br>
+                 <br>
+                 nota: para inyectar un servicio dentro de otro servicio hay que usar la decoracion@inyectable
+ y usar el dependency inyection en el constructor del servicio en el que voy a inyctar
+
+    </div>
+</div>
 
 
-
- <p class="text-info d-none" [ngClass]="{'d-block':activo == 'primero'}" >
-     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-     Quam maiores adipisci quibusdam magnam temporibus quisquam nobis,
-      beatae obcaecati inventore tenetur. Provident quae ea perferendis
-     ducimus. Optio totam enim libero iste?
- </p>
  
- 
-     <p class="text-dark d-none" [ngClass]="{'d-block':activo == 'segundo'}" >
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-         Quam maiores adipisci quibusdam magnam temporibus quisquam nobis,
-          beatae obcaecati inventore tenetur. Provident quae ea perferendis
-         ducimus. Optio totam enim libero iste?
-     </p>
- 
-     <div class="container">
-         <table class="table table-hover table-striped table-bordered  table-light">
-             <thead>
-                 <tr>
-                     <th scope="col">#</th>
-                     <th scope="col">Tipo</th>
-                     <th scope="col">Nombre</th>
-                     <th scope="col">Edad</th>
-                 </tr>
-             </thead>
-             <tbody>
-                 <tr *ngFor="let animal of animales; index as i">
-                     <td>{{i+1}}</td>
-                     <td>{{animal.tipo}}</td>
-                     <td>{{animal.name}}</td>
-                     <td>{{animal.edad}}</td>
-                 </tr>
-             </tbody>
-         </table>
-     </div>
- 
- 
- 
- 
- 
- </div>
