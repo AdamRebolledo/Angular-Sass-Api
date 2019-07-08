@@ -1,15 +1,15 @@
-import{RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-//servicio
-import{EquipoService} from './equipo.service';
+// servicio
+import { EquipoService } from './equipo.service';
 import { UserService } from './services/user.service';
-//API
-import { HttpClientModule} from '@angular/common/http';
+// API
+import { HttpClientModule } from '@angular/common/http';
 
-//modulo para formularios
-import{ FormsModule } from '@angular/forms';
-//font-awesome
+// modulo para formularios
+import { FormsModule } from '@angular/forms';
+// font-awesome
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,14 +24,14 @@ import { NotfountComponent } from './notfount/notfount.component';
 import { EquipoComponent } from './equipo/equipo.component';
 
 
-//firebase import       https://github.com/angular/angularfire2/blob/master/docs/install-and-setup.md   link de documentacion para instalar
+// firebase import       https://github.com/angular/angularfire2/blob/master/docs/install-and-setup.md   link de documentacion para instalar
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-//servicio de conexion
-import{ConexionService}from './services/conexion.service';
+// servicio de conexion
+import { ConexionService } from './services/conexion.service';
 import { ListaComponent } from './components/lista/lista.component';
 import { ListaAddComponent } from './components/lista-add/lista-add.component';
 import { ApiUsersComponent } from './components/api-users/api-users.component';
@@ -40,41 +40,46 @@ import { FormComponent } from './form/form.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { ResultadoComponent } from './resultado/resultado.component';
 import { TestApiComponent } from './test-api/test-api.component';
+import { IngresosComponent } from './practica/ingresos/ingresos.component';
+import { EgresosComponent } from './practica/egresos/egresos.component';
+import { HeaderpracticaComponent } from './practica/headerpractica/headerpractica.component';
+import { MovimientosComponent } from './practica/movimientos/movimientos.component';
+import { ContentappComponent } from './practica/contentapp/contentapp.component';
 
 
 
 
 
-//contaste de rutas
-const routes:Routes= [
+// contaste de rutas
+const routes: Routes = [
   {
-    path: '', component:TestApiComponent, pathMatch:'full'
+    path: '', component: ContentappComponent, pathMatch: 'full'
   },
   {
-    path: 'inicio', component:InicioComponent
+    path: 'inicio', component: InicioComponent
   },
   {
-    path: 'nosotros', component:NosotrosComponent
+    path: 'nosotros', component: NosotrosComponent
   },
   {
-    path: 'contacto', component:ContactoComponent
+    path: 'contacto', component: ContactoComponent
   },
   {
-    path: 'equipo/:id', component:EquipoComponent
+    path: 'equipo/:id', component: EquipoComponent
   },
   {
-    path: 'api', component:ApiUsersComponent
+    path: 'api', component: ApiUsersComponent
   },
   {
-    path: 'callback?code', component:ApiUsersComponent
+    path: 'callback?code', component: ApiUsersComponent
   },
   {
-    path: 'practica', component:HeaderComponent
+    path: 'practica', component: HeaderComponent
   },
   {
-    path: '**', component:NotfountComponent
+    path: '**', component: NotfountComponent
   }
- 
+
 ];
 
 
@@ -96,13 +101,18 @@ const routes:Routes= [
     FormComponent,
     CalculatorComponent,
     ResultadoComponent,
-    TestApiComponent
+    TestApiComponent,
+    IngresosComponent,
+    EgresosComponent,
+    HeaderpracticaComponent,
+    MovimientosComponent,
+    ContentappComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes), //importacion de la clase para rutas
-    AngularFireModule.initializeApp(environment.firebase),//import para firebase
+    RouterModule.forRoot(routes), // importacion de la clase para rutas
+    AngularFireModule.initializeApp(environment.firebase), // import para firebase
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
